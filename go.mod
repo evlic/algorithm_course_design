@@ -1,5 +1,8 @@
 module ACD
 
-go 1.18
+go 1.17
 
-require github.com/cihub/seelog v0.0.0-20170130134532-f561c5e57575 // indirect
+require (
+	github.com/sirupsen/logrus v1.8.1
+	golang.org/x/sys v0.0.0-20191026070338-33540a1f6037 // indirect
+)

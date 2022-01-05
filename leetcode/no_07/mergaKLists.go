@@ -1,4 +1,4 @@
-package no_7
+package no_07
 
 type ListNode struct {
 	Val  int

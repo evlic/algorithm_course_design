@@ -1,4 +1,4 @@
-package no_7
+package no_07
 
 import (
 	"ACD/common"
@@ -31,7 +31,7 @@ func isAccess(solution *ListNode, ans []int) bool {
 
 func TestByBuiltinData(t *testing.T) {
 	log.Info("\n| 测试用例编号 | 程序输入以及步骤          | 期待结果（输出） | 实际结果（输出） | 是否通过 |" + "\n| ------------ | ------------------------- | ---------------- | ---------------- | -------- |")
-	
+
 	for idx, val := range data {
 		var ps []*ListNode
 		for _, v := range val {
@@ -54,5 +54,5 @@ func TestByBuiltinData(t *testing.T) {
 // 	flag.Parse()
 // 	args := flag.Args()
 // 	log.Infof("您的入参长： %v", len(args))
-// 
+//
 // }
