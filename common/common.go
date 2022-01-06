@@ -34,6 +34,16 @@ func MaxInSlice(n []int) (idx int) {
 	return
 }
 
+func MinIntSliceVal(a []int) int {
+	min := 0x0ffffff
+	for _, v := range a {
+		if v < min {
+			min = v
+		}
+	}
+	return min
+}
+
 func init() {
 	logger.SetOutput(os.Stdout)
 

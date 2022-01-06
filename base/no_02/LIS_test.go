@@ -4,33 +4,33 @@ import (
 	"ACD/common"
 	"flag"
 	"fmt"
-	"sort"
 	"strconv"
 	"testing"
 )
 
 var (
-	data = [][][]int{
-		{{1, 4, 5}, {1, 3, 4}, {2, 6}},
-		{{}},
+	data = [][]int{
+		{10, 9, 2, 5, 3, 7, 101, 18},
+		{0, 1, 0, 3, 2, 3},
+		{7, 7, 7, 7, 7, 7, 7},
 	}
-	expectAns = [][]int{
-		{1, 1, 2, 3, 4, 4, 5, 6},
-		{},
+	expectAns = []int{
+		4,
+		4,
+		1,
 	}
 	log = *common.GetLogger()
 )
 
+// isAccess 判断答案是否符合预期
+func isAccess(solution, ans int) bool {
 
-// isAccess 判断答案是否符合预期 
-func isAccess(solution, ans interface{}) bool {
-	
-	return true
+	return solution == ans
 }
 
 func TestByBuiltinData(t *testing.T) {
 	log.Info("\n| 测试用例编号 | 程序输入以及步骤          | 期待结果（输出） | 实际结果（输出） | 是否通过 |" + "\n| ------------ | ------------------------- | ---------------- | ---------------- | -------- |")
-	
+
 	for idx, val := range data {
 		solution := Solution(val)
 		expect := expectAns[idx]
@@ -46,20 +46,20 @@ func TestByBuiltinData(t *testing.T) {
 func TestByStdin(t *testing.T) {
 	flag.Parse()
 	args := flag.Args()
-	log.Infof("您的入参长： %v", len(args))
+	log.Infof("您的入参长度： %v", len(args))
 
-//	var input []int
-//	for _, v := range args {
-//		if i, err := strconv.Atoi(v); err == nil {
-//			input = append(input, i)
-//		} else {
-//			log.Errorln("错误输入：", v, "\t 转换为 int 失败 >> ", err)
-//			return
-//		}
-//	}
-//
-//	solution := Solution(input)
-//	fmt.Printf(
-//		"\n| 输入 >> %v | \n| 输出 >> %v | \n| 共计 >> %v | \n", input, solution, len(solution),
-//	)
+	var input []int
+	for _, v := range args {
+		if i, err := strconv.Atoi(v); err == nil {
+			input = append(input, i)
+		} else {
+			log.Errorln("错误输入：", v, "\t 转换为 int 失败 >> ", err)
+			return
+		}
+	}
+
+	solution := Solution(input)
+	fmt.Printf(
+		"\n\t| 输入 >> %v | \n\t| 输出 >> %v | \n", input, solution,
+	)
 }
